@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Genesis 2025 | IIC</title>
+</head>
+  <link rel="stylesheet" href="style.css">
+
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Dark</button>
+    <h1>Genesis 2025</h1>
+    <p>Flagship Innovation Event by IIC</p>
+    <a href="#register" class="btn">Register Now</a>
+  </section>
+
+  <!-- About -->
+  <section class="about">
+    <div class="container">
+      <h2>About Genesis</h2>
+      <p>
+        Genesis 2025 is the flagship event of IIC, bringing together 
+        innovators, entrepreneurs, and visionaries to pitch their groundbreaking ideas. 
+        The event fosters creativity, networking, and collaboration.
+      </p>
+      <div class="about-icons">
+        <div>🚀<p>Innovation</p></div>
+        <div>🤝<p>Networking</p></div>
+        <div>🏆<p>Competition</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Highlights -->
+  <section class="highlights">
+    <div class="container">
+      <h2>Event Highlights</h2>
+      <div class="highlight-cards">
+        <div class="card" style="animation-delay:0.2s">
+          <span>💡</span>
+          <h3>Pitching</h3>
+          <p>Present your ideas to a panel of experts.</p>
+        </div>
+        <div class="card" style="animation-delay:0.4s">
+          <span>🌐</span>
+          <h3>Networking</h3>
+          <p>Connect with mentors and peers.</p>
+        </div>
+        <div class="card" style="animation-delay:0.6s">
+          <span>⚖️</span>
+          <h3>Jury</h3>
+          <p>Expert jury to evaluate your ideas.</p>
+        </div>
+        <div class="card" style="animation-delay:0.8s">
+          <span>💰</span>
+          <h3>Cash Prizes</h3>
+          <p>Attractive rewards for top performers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="timeline">
+    <div class="container">
+      <h2>Timeline</h2>
+      <div class="timeline-line">
+        <div class="timeline-step" style="animation-delay:0.2s">
+          <h3>Registration</h3>
+          <p>Participants register online.</p>
+        </div>
+        <div class="timeline-step" style="animation-delay:0.4s">
+          <h3>Shortlisting</h3>
+          <p>Top teams selected.</p>
+        </div>
+        <div class="timeline-step" style="animation-delay:0.6s">
+          <h3>Pitching</h3>
+          <p>Teams present their ideas.</p>
+        </div>
+        <div class="timeline-step" style="animation-delay:0.8s">
+          <h3>Finale</h3>
+          <p>Winners announced.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Register -->
+  <section id="register" class="register">
+    <div class="container">
+      <h2>Register Now</h2>
+      <form>
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="text" placeholder="College/Organization" required>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <h3>Contact Us</h3>
+    <p>Email: iic@example.com | WA: +91 98765 43210 | Instagram: @iic_genesis</p>
+    <p>Made by IIC WebOps Team</p>
+  </footer>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark");
+      const btn = document.querySelector(".toggle-btn");
+      if(document.body.classList.contains("dark")){
+        btn.textContent = "☀️ Light";
+      } else {
+        btn.textContent = "🌙 Dark";
+      }
+    }
+
+    // Animate cards/timeline when scrolling into view
+    const observers = document.querySelectorAll('.card, .timeline-step');
+    const appearOnScroll = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.style.opacity = "1";
+          entry.target.style.animationPlayState = "running";
+          appearOnScroll.unobserve(entry.target);
+        }
+      });
+    },{ threshold: 0.1 });
+
+    observers.forEach(el => appearOnScroll.observe(el));
+  </script>
+</body>
+</html>
